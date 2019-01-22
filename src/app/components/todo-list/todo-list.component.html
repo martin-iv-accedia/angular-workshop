@@ -1,15 +1,15 @@
-<div style="display: flex; flex-direction: column;">
+<div class="flex-container">
   <p *ngIf="todos.length === 0">
     Loading ...
   </p>
 
   <ul *ngIf="todos.length > 0">
     <li *ngFor="let todo of todos; let i = index; let last = last; let first = first; let odd = odd; let even = even;">
-      <a href="#">
+      <a href="#" [ngClass]="{'first': first, 'last': last}">
         {{ todo }}
-        <span *ngIf="first">This is the first element</span>
-        <span *ngIf="i === 1">This is the second element</span>
-        <span *ngIf="last">This is the last element</span>
+        <!-- <span *ngIf="first">This is the first element</span> -->
+        <!-- <span *ngIf="i === 1">This is the second element</span> -->
+        <!-- <span *ngIf="last">This is the last element</span> -->
       </a>
     </li>
   </ul>
