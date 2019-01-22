@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import Car from '../../models/Car';
 
@@ -7,10 +7,11 @@ import Car from '../../models/Car';
   templateUrl: './favourite-car.component.html'
 })
 export class FavouriteCar {
-  car: Car;
+  @Input() car: Car;
+  defaultCar: Car;
 
   constructor() {
-    this.car = {
+    this.defaultCar = {
       name: 'VW',
       model: 'Polo 1.2 TSI DSG 105 hp (CB **** KB)'
     };

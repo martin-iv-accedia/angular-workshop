@@ -10,7 +10,14 @@
     <tr *ngFor="let car of cars">
       <th>{{ car.name }}</th>
       <td>{{ car.model }}</td>
-      <td></td>
+      <td>
+        <button
+          (click)="onCarSelection(car)"
+          class="btn btn-primary"
+        >
+          This is my fav!
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
