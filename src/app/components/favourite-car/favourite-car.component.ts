@@ -1,4 +1,9 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnChanges
+} from '@angular/core';
 
 import Car from '../../models/Car';
 
@@ -6,7 +11,7 @@ import Car from '../../models/Car';
   selector: 'favourite-car',
   templateUrl: './favourite-car.component.html'
 })
-export class FavouriteCar {
+export class FavouriteCar implements OnInit, OnChanges {
   @Input() car: Car;
   defaultCar: Car;
 
@@ -15,5 +20,16 @@ export class FavouriteCar {
       name: 'VW',
       model: 'Polo 1.2 TSI DSG 105 hp (CB **** KB)'
     };
+  }
+
+  ngOnInit() {
+    console.warn('OnInit');
+  }
+
+  ngOnChanges(changes) {
+    if (changes.car.firstChange) {
+      this.car = this.defaultCar;
+    }
+    console.warn('OnChanges => ', changes);
   }
 }

@@ -2,7 +2,9 @@ import {
   Component,
   Input,
   Output,
-  EventEmitter
+  EventEmitter,
+  OnInit,
+  OnChanges
 } from '@angular/core';
 
 import Car from '../../models/Car';
@@ -11,12 +13,20 @@ import Car from '../../models/Car';
   selector: 'cars-list',
   templateUrl: './cars-list.component.html'
 })
-export class CarsList {
+export class CarsList implements OnInit, OnChanges {
   @Input() cars: Car[];
   @Output() carSelected = new EventEmitter();
 
 
   onCarSelection(car: Car) {
     this.carSelected.emit(car);
+  }
+
+  ngOnInit() {
+    console.warn('OnInit');
+  }
+
+  ngOnChanges(changes) {
+    console.warn('OnChanges => ', changes);
   }
 }
